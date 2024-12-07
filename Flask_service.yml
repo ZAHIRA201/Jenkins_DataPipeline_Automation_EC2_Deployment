@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flaski-app-service
+spec:
+  type: LoadBalancer  # Exposes the service externally
+  ports:
+  - port: 80          # Port to expose to the external world
+    targetPort: 5020  # Port on the container
+  selector:
+    app: flaski-app    # Matches the label in the Deployment (all lowercase)
